@@ -14,5 +14,6 @@ When(/^the page should include ([^"]*) for ([^"]*)$/) do |tag, content|
       end
     when 'css' then page.should have_xpath("//link[contains(@href, '#{content}')]", visible: false)
     when 'js' then page.should have_xpath("//script[contains(@src, '#{content}')]", visible: false)
+
   end
 end
