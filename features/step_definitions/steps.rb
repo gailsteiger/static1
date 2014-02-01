@@ -8,6 +8,10 @@ Given(/^I am on the google site$/) do
   visit 'http://www.google.com'
 end
 
+Given(/^I am on the community site$/) do
+  visit 'https://plus.google.com/u/0/communities/100279740984094902927/events'
+end
+
 Given(/^I search for "(.*?)"$/) do |query|
   fill_in('q', :with => query)
   find('input[name="btnG"]').click
@@ -58,7 +62,8 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
 end
 
 When /^(?:|I )click "([^"]*)"$/ do |button|
-  click_link_or_button(button)
+  #native.click(button)
+  page.should have_xpath("//div[@role='button']", :text => button)
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
