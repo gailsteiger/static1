@@ -5,12 +5,13 @@ describe "Questionnaire"  do
     before(:each) do
       QuestionBuilder.build({
         questions: [
-          {title: "Do you regularly lay awake in bed at night worrying how you’re going to pay your bills?", order: 1},
+          {title: "Do you regularly lay awake in bed at night worrying how you are going to pay your bills?", order: 1},
           {title: "How often do you feel plagued by worry about your debts?", order: 2}
         ],
         answers: [
           {title: "yes", score: 3, resource:{title: "Example", type: 'url', url: "http://example.com"}},
-          {title: "no", score: 1, resource: {title: "Test", type: 'url', url: "http://example.com"}}
+          {title: "no", score: 2, resource: {title: "Test", type: 'url', url: "http://example.com"}},
+          {title: "maybe", score: 1, resource: {title: "Test", type: 'url', url: "http://example.com"}}
         ]
       })
     end
