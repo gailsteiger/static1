@@ -5,7 +5,7 @@ describe "Questionnaire"  do
     before(:each) do
       QuestionBuilder.build({
         questions: [
-          {title: "Do you regularly lay awake in bed at night worrying how you are going to pay your bills?", order: 1},
+          {title: "Do you regularly lay awake in bed at night worrying how you\'re going to pay your bills?", order: 1},
           {title: "How often do you feel plagued by worry about your debts?", order: 2}
         ],
         answers: [
