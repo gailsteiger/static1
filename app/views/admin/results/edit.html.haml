@@ -1,0 +1,21 @@
+.row-fluid
+  .col-md-12
+    = form_for [:admin, @result], role: 'form' do |f|
+      %h3 Result
+      .form-group
+        = f.label :intro
+        = f.text_area :intro, class: 'form-control'
+      .form-group
+        = f.label :body
+        = f.text_area :body, class: 'form-control'
+      .form-group
+        = f.label :score_min, 'Minimum Score'
+        = f.select :score_min, 0..14, selected: @result.score_min
+      .form-group
+        = f.label :score_max, 'Maximum Score'
+        = f.select :score_min, 0..14, selected: @result.score_max
+      .col-md-3
+        .pull-left
+          = f.submit "Update Result", class: 'btn btn-primary'
+        .pull-right
+          = link_to 'Cancel', root_path, class: 'btn btn-danger'

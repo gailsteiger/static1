@@ -1,0 +1,8 @@
+/*
+*= require bootstrap
+*= require_self
+*/
+
+#sortable tr.item {
+  cursor: row-resize;
+}

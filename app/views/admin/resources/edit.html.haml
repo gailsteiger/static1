@@ -1,0 +1,21 @@
+.row-fluid
+  .col-md-12
+    = form_for [:admin, @resource], role: 'form' do |f|
+      %h3 Resource
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+      .form-group
+        = f.label :url
+        = f.text_field :url, class: 'form-control'
+      .form-group
+        = f.label :external_id, "External ID"
+        = f.text_field :external_id, class: 'form-control'
+      .form-group
+        = f.label :resource_type
+        = f.select :resource_type, ["ARTICLE", "AUDIO", "BROWSE", "VIDEO", "MAS"]
+      .col-md-3
+        .pull-left
+          = f.submit "Update Resource", class: 'btn btn-primary'
+        .pull-right
+          = link_to 'Cancel', root_path, class: 'btn btn-danger'

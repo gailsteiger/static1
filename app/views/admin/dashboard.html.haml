@@ -1,0 +1,79 @@
+.row-fluid
+  .col-md-12
+    .pull-right
+      = link_to 'New Question', new_admin_question_path, class: 'btn btn-success'
+      = link_to 'New Resource', new_admin_resource_path, class: 'btn btn-success'
+      = link_to 'New Result', new_admin_result_path, class: 'btn btn-success'
+
+.row-fluid
+  .col-md-12
+    %ul.nav.nav-tabs#tabs
+      %li.question-tab.active
+        %a{"href" => "#questions", "data-toggle" => "tab"}
+          Questions
+      %li.resource-tab
+        %a{"href" => "#resources", "data-toggle" => "tab"}
+          Resources
+      %li.results-tab
+        %a{"href" => "#results", "data-toggle" => "tab"}
+          Results
+
+
+.tab-content
+  .tab-pane.active#questions
+    .row-fluid
+      .col-md-12
+        %h3 Questions
+        %table.table.table-striped#sortable{:data => {update_url: sort_admin_questions_path}}
+          %tr
+            %th Title
+            %th Actions
+
+          - @questions.each do |question|
+            %tr{data: {'question-id' => "#{question.id}"}, :class => 'item'}
+              %td= question.title
+              %td
+                = link_to 'Edit', edit_admin_question_path(question), class: 'btn btn-primary'
+                = link_to 'Delete', admin_question_path(question), method: :delete, class: 'btn btn-danger', confirm: 'Are you sure you want to delete this question?'
+
+  .tab-pane#resources
+    .row-fluid
+      .col-md-12
+        %h3 Resources
+        %table.table.table-striped
+          %tr
+            %th Title
+            %th URL
+            %th ID
+            %th Type
+            %th Actions
+
+          - @resources.each do |resource|
+            %tr
+              %td= resource.title
+              %td= resource.url
+              %td= resource.external_id
+              %td= resource.resource_type
+              %td
+                = link_to 'Edit', edit_admin_resource_path(resource), class: 'btn btn-primary'
+                = link_to 'Delete', admin_resource_path(resource), method: :delete, class: 'btn btn-danger', confirm: 'Are you sure you want to delete this resource?'
+
+  .tab-pane#results
+    .row-fluid
+      .col-md-12
+        %h3 Results
+        %table.table.table-striped
+          %tr
+            %th Intro
+            %th Actions
+          - @results.each do |result|
+            %tr
+              %td= result.intro
+              %td
+                = link_to 'Edit', edit_admin_result_path(result), class: 'btn btn-primary'
+                = link_to 'Delete', admin_result_path(result), method: :delete, class: 'btn btn-danger', confirm: 'Are you sure you want to delete this result?'
+
+:javascript
+  $(document).ready(function ($) {
+    $('#tabs').tab();
+  });

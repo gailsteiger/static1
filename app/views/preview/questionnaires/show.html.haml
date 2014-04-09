@@ -1,0 +1,134 @@
+#page
+  .main-box
+    - if @question.present?
+      %h1.title-window Are money worries affecting your health?
+      .inner
+        .content.subpage
+          %strong.title-paragraph== Question #{@question.current_position} of #{Question.all.count}
+          %p.text= @question.title
+
+          = form_tag preview_questionnaire_continue_path(@questionnaire), method: :put, id: "choose-time" do
+            = hidden_field_tag :current, @question.row_order
+            .cf
+              - if @answer.present?
+                .answered-question{answer_id: @answer.id}
+                  .input-radio
+                    %input{type: "radio", value: @question.answers[0].id, name: "answer", id: "first-option"}
+                      %label{ for: "first-option" }
+                        = @question.answers[0].title
+
+                  .input-radio
+                    %input{type: "radio", value: @question.answers[1].id, name: "answer", id: "second-option"}
+                      %label{ for: "second-option" }
+                        = @question.answers[1].title
+
+                  .input-radio
+                    %input{type: "radio", value: @question.answers[2].id, name: "answer", id: "third-option"}
+                      %label{ for: "third-option" }
+                        = @question.answers[2].title
+              - else
+                .input-radio
+                  %input{type: "radio", value: @question.answers[0].id, name: "answer", id: "first-option"}
+                    %label{ for: "first-option" }
+                      = @question.answers[0].title
+
+                .input-radio
+                  %input{type: "radio", value: @question.answers[1].id, name: "answer", id: "second-option"}
+                    %label{ for: "second-option" }
+                      = @question.answers[1].title
+
+                .input-radio
+                  %input{type: "radio", value: @question.answers[2].id, name: "answer", id: "third-option"}
+                    %label{ for: "third-option" }
+                      = @question.answers[2].title
+
+            .holder-button.cf
+              - if @questionnaire.previous_question?(@question.row_order)
+                = link_to "Prev", preview_questionnaire_previous_path(@questionnaire, current: @question.row_order), class: "previous-question button-direction left", remote: true
+              = submit_tag "Next", class: 'submit-question button-direction right', disabled: true
+    - else
+      %h1.title-window Are money worries affecting your health?
+      .inner
+        .top-part
+          .top
+            %h2.title-top Your result
+            = link_to 'Email result', '#', class: 'link'
+          .wrapper-bar
+            %span#result-bar{ "data-picture" => "", "data-alt" => "result-bar" }
+              %span
+                = image_tag("bar374.png", retina: true)
+            %span#pointer{ "data-picture" => "", "data-alt" => "pointer", :style => "left: #{pointer_score_for(@questionnaire)}%;" }
+              %span
+                = image_tag("pointer.png", retina: true)
+        .overflow
+          .content.subpage2
+            - if @questionnaire.score == 0
+              - result = Result.where(score_min: 0, score_max: 0).first
+            - else
+              - result = Result.where("score_min <= ? AND score_max >= ?", @questionnaire.score, @questionnaire.score).first
+            - if @email.present?
+              %p.email-text
+                We have emailed the results to the email address you provided.
+            %p.text
+              = result.body
+            %strong.title-accordion
+              = result.intro
+
+          #accordion 
+            %ul.main-list
+              - if @questionnaire.score == 0
+                - resources = Resource.where(resource_type: "MAS", score: 0)
+                %li
+                  = link_to 'Money Advice Service Help', '#', class: 'collapsed'
+                  %ul.submenu
+                    - resources.each do |resource|
+                      %li
+                        = link_to resource.url, target: "_blank" do
+                          %span.images{"data-picture" => ""}
+                            %span
+                              = image_tag("mas.png", retina: true)
+                          %p= resource.title
+
+              - else
+                - resource_score = @questionnaire.score > 4 ? 5 : 4
+                - resources = Resource.where(resource_type: "MAS", score: resource_score)
+                %li
+                  = link_to 'Money Advice Service Help', '#'
+                  %ul.submenu
+                    - resources.each do |resource|
+                      %li
+                        = link_to resource.url, target: "_blank" do
+                          %span.images{"data-picture" => ""}
+                            %span
+                              = image_tag("mas.png", retina: true)
+                          %p= resource.title
+                - @questionnaire.grouped_resources.each do |resource|
+                  %li
+                    - if resource.resources.size > 1
+                      = link_to resource.category.title, '#'
+                    - else
+                      = link_to resource.question.heading, '#'
+                    %ul.submenu
+                      - resource.resources.uniq.each do |subresource|
+                        %li
+                          = link_to subresource.url, target: "_blank" do
+                            %span.images{"data-picture" => ""}
+                              %span
+                                = image_tag("#{subresource.resource_type.downcase}.png", retina: true)
+                            %p= subresource.title
+
+    .bg-popup
+      .box-popup
+        %span#close
+          %span{"data-src" => "/assets/close.png"}
+            = image_tag("close@2x.png", style: "height: 16px; width: 16px" )
+
+        = form_tag(preview_questionnaire_email_path(@questionnaire),  id: "popup-email") do
+          .input-text
+            %label{for: "email"}
+              Enter your email address
+            %input{type: "email", name: "email", id: "email"}
+
+          %input{type: "submit", name: "submit", value: "Send", class: "start-button"}
+
+

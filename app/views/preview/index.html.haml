@@ -1,0 +1,13 @@
+#page
+  .main-box
+    .content
+      %span#start-image{"data-picture" => "", "data-alt" => "the Money Advice Serivce" }
+        %span{"data-src" => "/assets/startImage.png"}
+          = image_tag("MAS_logo_lg.png", retina: true)
+        %span{"data-src" => "/assets/startImage@2x.png", "data-media" => "(min-device-pixel-ratio: 1.5)"}
+        %noscript
+          =image_tag "startImage.png", alt: "the Money Advice Service", retina: true
+      %h1.title Are money worries affecting your health?
+      %p.text
+        If you have financial worries it can really start to impact on the way you feel. Answer these few simple questions and get some tips to help you feel better and more in control.
+      = link_to 'Start', preview_questionnaires_path, method: :post, class: 'start-button'

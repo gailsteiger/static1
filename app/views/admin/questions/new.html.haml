@@ -1,0 +1,30 @@
+.row-fluid
+  .col-md-12
+    = form_for [:admin, @question], role: 'form' do |f|
+      %h3 Question
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+      .form-group
+        = f.label :heading
+        = f.text_field :heading, class: 'form-control'
+      .form-group
+        = f.label :category_id, "Category"
+        = f.select :category_id, options_from_collection_for_select(Category.all, 'id', 'title')
+      %h3 Answers
+      = f.fields_for :answers do |builder|
+        - 3.times do
+          .form-group
+            = builder.label :title
+            = builder.text_field :title
+            = builder.label :score
+            = builder.text_field :score
+            = builder.label :resource_external_ids
+            = builder.text_field :resource_external_ids
+
+      .col-md-3
+        .pull-left
+          = f.submit "Create Question", class: 'btn btn-primary'
+        .pull-right
+          = link_to 'Cancel', root_path, class: 'btn btn-danger'
+
