@@ -28,10 +28,10 @@
                       = @question.answers[2].title
             - else
 
-              .input-radio.ui-radio
-                %input{type: "radio", value: @question.answers[0].id, name: "answer", id: "first-option"}
-                  %label{ for: "first-option" }
-                    = @question.answers[0].title
+              %label{ for: "first-option" }
+                .input-radio
+                  %input{type: "radio", value: @question.answers[0].id, name: "answer", id: "first-option"}
+                = @question.answers[0].title
 
               .input-radio.ui-radio
                 %input{type: "radio", value: @question.answers[1].id, name: "answer", id: "second-option"}
