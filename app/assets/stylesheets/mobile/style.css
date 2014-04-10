@@ -55,7 +55,7 @@ h1.title-window {
 
 h1.title {
     color: #0099ef;
-    font-size: 32px !important;
+    font-size: 26px !important;
 }
 
 p.block {
@@ -301,7 +301,7 @@ p.block {
     line-height: 16px;
     text-decoration: none;
     margin-right: 11px;
-    margin-top: 10px !important;
+    margin-top: 7px;
     color: #0064b7;
 }
 
@@ -637,7 +637,7 @@ p.block {
 
     .link {
         font-size: 18px;
-        margin-top: 15px;
+        margin-top: 10px;
         margin-right: 11px;
     }
 
