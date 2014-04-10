@@ -49,7 +49,7 @@ group :test do
   gem 'launchy'
   gem 'site_prism'
   gem 'selenium-webdriver'
-  gem 'capybara-touch', git: 'git://github.com/lazerwalker/capybara-touch'
+  gem 'capybara-iphone'
 end
 
 # Use ActiveModel has_secure_password
