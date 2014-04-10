@@ -66,7 +66,7 @@
               %p.email-text
                 We have emailed the results to the email address you provided.
             %p.text
-              = result.body
+              = result.try(&:body)
             %strong.title-accordion
               = result.intro
 
