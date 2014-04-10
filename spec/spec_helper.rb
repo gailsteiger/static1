@@ -5,7 +5,6 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara'
 require 'capybara/rspec'
-require 'capybara/iphone'
 require 'selenium-webdriver'
 require 'site_prism'
 
@@ -16,10 +15,6 @@ Dir[Rails.root.join("spec/support/**/*.rb"), Rails.root.join("spec/pages/**/*.rb
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
-
-Capybara.register_driver(:iphone) do |app|
-  Capybara::Driver::Iphone.new(app)
-end
 
 RSpec.configure do |config|
   # ## Mock Framework

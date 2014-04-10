@@ -49,7 +49,6 @@ group :test do
   gem 'launchy'
   gem 'site_prism'
   gem 'selenium-webdriver'
-  gem 'capybara-iphone'
 end
 
 # Use ActiveModel has_secure_password
