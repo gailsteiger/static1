@@ -66,6 +66,12 @@ p.block {
     display: flex;
 }
 
+span.label-block {
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 13px;
+}
+
 #start-image {
     display: inline-block;
     margin-top: 14px;

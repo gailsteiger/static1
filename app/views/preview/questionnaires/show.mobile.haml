@@ -12,7 +12,7 @@
           .cf
             - if @answer.present?
               .answered-question{answer_id: @answer.answer.id}
-                .input-radio{type: 'radio', name: 'radio-enhanced', id: 'radio-enhanced', data:{enhanced: 'true'}}
+                .input-radio
                   %input{type: "radio", value: @question.answers[0].id, name: "answer", id: "first-option"}
                     %label{ for: "first-option" }
                       = @question.answers[0].title
@@ -27,21 +27,17 @@
                     %label{ for: "third-option" }
                       = @question.answers[2].title
             - else
+              %label.input-radio{ for: "first-option", style: 'text-align: left;'}
+                %span.label-block= @question.answers[0].title
+                %input{type: "radio", value: @question.answers[0].id, name: "answer", id: "first-option"}
 
-              %label{ for: "first-option" }
-                .input-radio
-                  %input{type: "radio", value: @question.answers[0].id, name: "answer", id: "first-option"}
-                = @question.answers[0].title
-
-              .input-radio.ui-radio
+              %label.input-radio{ for: "second-option", style: 'text-align: left;'}
+                %span.label-block= @question.answers[1].title
                 %input{type: "radio", value: @question.answers[1].id, name: "answer", id: "second-option"}
-                  %label{ for: "second-option" }
-                    = @question.answers[1].title
 
-              .input-radio.ui-radio
+              %label.input-radio{ for: "third-option", style: 'text-align: left;'}
+                %span.label-block= @question.answers[2].title
                 %input{type: "radio", value: @question.answers[2].id, name: "answer", id: "third-option"}
-                  %label{ for: "third-option" }
-                    = @question.answers[2].title
 
 
             .holder-button.cf
