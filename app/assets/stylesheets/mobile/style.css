@@ -55,7 +55,7 @@ h1.title-window {
 
 h1.title {
     color: #0099ef;
-    font-size: 26px !important;
+    font-size: 32px !important;
 }
 
 p.block {
@@ -721,18 +721,21 @@ p.block {
 /* CSS for Logotype on Tablets and Smartphones */
 /* For Smartphones (portrait and landscape) */
 @media only screen
-and (min-width: 320px)
 and (max-width: 480px) {
 
     .mobile-logo {
         display: none;
         visibility: hidden;
     }
+    h1.title {
+        color: #0099ef;
+        font-size: 26px !important;
+    }
 }
 
 /* For Tablets (portrait and landscape) */
 @media only screen
-and (min-width: 768px)
+and (min-width: 481px)
 and (max-width: 1024px) {
 
     .mobile-logo {
