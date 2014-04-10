@@ -1,11 +1,10 @@
 require 'spec_helper'
 
-describe 'views/preview/index.mobile.haml' do
-  before(:each) do
-
-  end
-
-  it 'index.mobile.haml' do
-    pending
+describe 'preview/index.mobile.haml' do
+  it 'check for some css' do
+    render
+    rendered.should have_css('#page')
+    rendered.should have_css('.main-box')
   end
 end
+

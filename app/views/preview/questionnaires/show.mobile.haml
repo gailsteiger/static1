@@ -12,7 +12,7 @@
           .cf
             - if @answer.present?
               .answered-question{answer_id: @answer.answer.id}
-                .input-radio
+                .input-radio{type: 'radio', name: 'radio-enhanced', id: 'radio-enhanced', data:{enhanced: 'true'}}
                   %input{type: "radio", value: @question.answers[0].id, name: "answer", id: "first-option"}
                     %label{ for: "first-option" }
                       = @question.answers[0].title
@@ -27,7 +27,8 @@
                     %label{ for: "third-option" }
                       = @question.answers[2].title
             - else
-              .input-radio
+
+              .input-radio{type: 'radio', name: 'radio-enhanced', id: 'radio-enhanced', data:{enhanced: 'true'}}
                 %input{type: "radio", value: @question.answers[0].id, name: "answer", id: "first-option"}
                   %label{ for: "first-option" }
                     = @question.answers[0].title
@@ -88,8 +89,8 @@
                         = link_to resource.url, target: "_blank" do
                           %span.images{"data-picture" => ""}
                             %span
-                              = image_tag("mas.png", retina: true)
-                          %p= resource.title
+                              = image_tag("mas@2x.png", retina: true)
+                          %p.block= resource.title
 
               - else
                 - resource_score = @questionnaire.score > 4 ? 5 : 4
@@ -102,8 +103,8 @@
                         = link_to resource.url, target: "_blank" do
                           %span.images{"data-picture" => ""}
                             %span
-                              = image_tag("mas.png", retina: true)
-                          %p= resource.title
+                              = image_tag("mas@2x.png", retina: true)
+                          %p.block= resource.title
                 - @questionnaire.grouped_resources.each do |resource|
                   %li
                     - if resource.resources.size > 1
@@ -116,8 +117,8 @@
                           = link_to subresource.url, target: "_blank" do
                             %span.images{"data-picture" => ""}
                               %span
-                                = image_tag("#{subresource.resource_type.downcase}.png", retina: true)
-                            %p= subresource.title
+                                = image_tag("#{subresource.resource_type.downcase}@2x.png", style: 'height: 38px', retina: true)
+                            %p.block= subresource.title
 
 
     .bg-popup
