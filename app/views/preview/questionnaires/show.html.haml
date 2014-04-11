@@ -80,7 +80,7 @@
                 - resources = Resource.where(resource_type: "MAS", score: 0)
                 %li
                   = link_to 'Money Advice Service Help', '#', class: 'collapsed'
-                  %ul.submenu{style: 'display: block;'}
+                  %ul.submenu{style: 'display: inline !important;'}
                     - resources.each do |resource|
                       %li
                         = link_to resource.url, target: "_blank" do
