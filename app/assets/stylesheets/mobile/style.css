@@ -423,7 +423,7 @@ span.label-block {
 }
 
 .submenu li a p {
-    font-size: 13px;
+    font-size: 13px !important;
     color: #585858;
     line-height: 18px;
     font-family: 'Arial', sans-serif;

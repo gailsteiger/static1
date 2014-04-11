@@ -1,7 +1,7 @@
 #page
   .main-box
     - if @question.present?
-      %h1.title-window Money and your health
+      %h1.title-window Are money worries affecting your health?
 
       .content.subpage
         .title-paragraph== Question #{@question.current_position} of #{Question.all.count}
