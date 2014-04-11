@@ -124,7 +124,7 @@
       .box-popup
         %span#close
           %span{"data-src" => "/assets/close.png"}
-            = image_tag("close@2x.png", style: "height: 16px; width: 16px" )
+            = image_tag("close.png", retina: true, style: "height: 16px; width: 16px" )
 
         = form_tag(preview_questionnaire_email_path(@questionnaire),  id: "popup-email") do
           .input-text
