@@ -8,11 +8,11 @@ jQuery ->
     $('.submit-question').css({opacity: 1.0})
 
   if($('.top-part').length > 0)
-    window.parent.postMessage('{"redirect": "http://188.226.164.52:3000/preview/", "w": "376","h": "650"}', "*")
+    window.parent.postMessage('{"w": "376","h": "650"}', "*")
     $('.submenu li a').click ->
       window.open($(this).attr('href'), '_blank')
   else
-    window.parent.postMessage('{"redirect": "http://188.226.164.52:3000/preview/", "w": "376","h": "400"}', "*")
+    window.parent.postMessage('{"w": "376","h": "400"}', "*")
 
 
   $('.submit-question').click ->
