@@ -248,7 +248,7 @@ span.label-block {
 }
 
 .holder-button {
-    margin-top: 23px;
+  /* margin-top: 23px; */
 }
 
 .wrapper-bar {
@@ -620,8 +620,11 @@ span.label-block {
     }
 
     .holder-button {
+      /*
         margin-top: 16px;
         margin-bottom: 11px;
+      */
+
     }
 
     .title-top {
