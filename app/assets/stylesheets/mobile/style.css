@@ -741,6 +741,14 @@ and (max-width: 480px) {
         color: #0099ef;
         font-size: 26px !important;
     }
+
+    .tablet-title {
+        display: none;
+        visibility: hidden;
+    }
+    .smartphone-title {
+        visibility: visible;
+    }
 }
 
 /* For Tablets (portrait and landscape) */
@@ -750,6 +758,14 @@ and (max-width: 1024px) {
 
     .mobile-logo {
         visibility: visible;
+    }
+
+    .tablet-title {
+        visibility: visible;
+    }
+    .smartphone-title {
+        display: none;
+        visibility: hidden;
     }
 
 }

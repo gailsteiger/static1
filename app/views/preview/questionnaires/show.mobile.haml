@@ -1,7 +1,8 @@
 #page
   .main-box
     - if @question.present?
-      %h1.title-window Are money worries affecting your health?
+      %h1.title-window.tablet-title Are money worries affecting your health?
+      %h1.title-window.smartphone-title Money and your health
 
       .content.subpage
         .title-paragraph== Question #{@question.current_position} of #{Question.all.count}
@@ -43,7 +44,8 @@
               %button{class: 'submit-question button-direction right', disabled: 'disabled', type: "submit"}
                 Next
     - else
-      %h1.title-window Money and your health
+      %h1.title-window.tablet-title Are money worries affecting your health?
+      %h1.title-window.smartphone-title Money and your health
       .inner
         .top-part
           .top
