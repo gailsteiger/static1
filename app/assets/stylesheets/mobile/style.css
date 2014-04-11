@@ -749,6 +749,12 @@ and (max-width: 480px) {
     .smartphone-title {
         visibility: visible;
     }
+
+    span.label-block {
+        font-size: 18px;
+        display: inline-block;
+        margin-top: 18px;
+    }
 }
 
 /* For Tablets (portrait and landscape) */
