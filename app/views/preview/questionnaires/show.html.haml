@@ -77,6 +77,12 @@
           #accordion 
             %ul.main-list
               - if @questionnaire.score == 0
+                :javascript
+                  $('#accordion').accordion({
+                      collapsible: true,
+                      autoHeight: false,
+                      active: true
+                  });
                 - resources = Resource.where(resource_type: "MAS", score: 0)
                 %li
                   = link_to 'Money Advice Service Help', '#', class: 'collapsed'

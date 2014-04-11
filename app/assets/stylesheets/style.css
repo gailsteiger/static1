@@ -350,7 +350,7 @@ h1.title {
 }
 
 .submenu {
-  display: none;
+  /*display: none;*/
   padding-left: 0;
   margin: 0;
   list-style: none;
@@ -385,6 +385,46 @@ h1.title {
   position: absolute;
   top: 20px;
   right: 10px;
+}
+
+
+
+
+.submenu-mod {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+.submenu-mod  li {
+    border-top: 1px solid #b3b3b3;
+    overflow: hidden;
+    background: #ffffff;
+}
+.submenu-mod li.active-submenu {
+    background: #e5e5e5;
+}
+.submenu-mod li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px 45px 10px 0;
+    position: relative;
+}
+.submenu-mod li a p {
+    font-size: 13px;
+    color: #585858;
+    line-height: 18px;
+    font-family: 'Arial', sans-serif;
+    margin: 0px;
+    margin-left: 60px;
+}
+.submenu-mod li a:after {
+    content: "";
+    width: 7px;
+    height: 14px;
+    background: url(arrow.png) no-repeat;
+    position: absolute;
+    top: 20px;
+    right: 10px;
 }
 
 .images {
@@ -489,4 +529,8 @@ h1.title {
     background-image: url("arrow@2x.png");
     background-size: 7px 14px;
   }
+    .submenu-mod li a:after {
+        background-image: url("arrow@2x.png");
+        background-size: 7px 14px;
+    }
 }
