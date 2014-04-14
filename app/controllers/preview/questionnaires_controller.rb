@@ -4,7 +4,10 @@ class Preview::QuestionnairesController < ApplicationController
 
   def create
     @questionnaire = Questionnaire.create
-    redirect_to preview_questionnaire_path(@questionnaire)
+    respond_to do |format|
+      format.html { redirect_to preview_questionnaire_path(@questionnaire) }
+      format.mobile { render json: @questionnaire }
+    end
   end
 
   def show

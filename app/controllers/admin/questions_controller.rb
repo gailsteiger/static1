@@ -72,7 +72,7 @@ class Admin::QuestionsController < ApplicationController
         next if id.blank?
         resource = Resource.where(:external_id => id).first
         next if resource.nil?
-        unless a.resource.include?(resource)
+        unless a.resources.include?(resource)
           a.resources << resource
         end
       end
