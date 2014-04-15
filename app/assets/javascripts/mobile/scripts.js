@@ -8,6 +8,18 @@ $(document).ready(function(){
 			$(this).parent().siblings('.input-radio').removeClass('selected');
 		}
 	});
+	
+	$('.start-button').click(function() {
+	  $.ajax({
+	    type: "POST",
+	    url: '/preview/questionnaires',
+	    success: function(data, status, xhr) {
+				var questionnaire = JSON.parse(data)
+	      window.parent.postMessage('{"redirect": "http://188.226.164.52:3000/preview/questionnaires/' + questionnaire.id + '"}', "*");
+	    }
+	  });
+	  return false;
+	});
 
 	$('.main-list li a').click(function(ev){
 		$(this).next('.submenu').slideToggle(500);

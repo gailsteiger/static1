@@ -68,9 +68,13 @@
               %p.email-text
                 We have emailed the results to the email address you provided.
             %p.text
-              = result.try(&:body)
+              - body = result.try(&:body)
+              - if body.present?
+                = body.html_safe
             %strong.title-accordion
-              = result.try(&:intro)
+              - intro = result.try(&:intro)
+              - if intro.present?
+                = intro.html_safe
 
           #accordion
             %ul.main-list

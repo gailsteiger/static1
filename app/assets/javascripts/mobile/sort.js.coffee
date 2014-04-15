@@ -12,12 +12,12 @@ jQuery ->
     $('.submit-question').css({opacity: 1.0})
 
   if($('.top-part').length > 0)
-    window.parent.postMessage('{"w": "376","h": "650"}', "*")
+    window.parent.postMessage('{"w": "374","h": "650"}', "*")
+
     $('.submenu li a').click ->
       window.open($(this).attr('href'), '_blank')
   else
-    window.parent.postMessage('{"w": "376","h": "400"}', "*")
-
+    window.parent.postMessage('{"w": "374","h": "400"}', "*")
 
   $('.submit-question').click ->
     if !$(this).prop('disabled')
@@ -64,6 +64,7 @@ jQuery ->
       position = ui.item.index()
       $.ajax(
         type: 'POST'
+        dataType: "jsonp"
         url: $(this).attr('data-update-url')
         dataType: 'json'
         data: { id: item_id, ordering: { row_order_position: position } }

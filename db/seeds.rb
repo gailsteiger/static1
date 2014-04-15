@@ -14,7 +14,7 @@ Response.delete_all
 AnswerResource.delete_all
 
 #BUILD CATEGORIES
-categories = ['Sleep problems and tiredness', 'Worry and stress', 'Anxiety attacks and avoidance', "Doing things that don't help", "Low mood and negative thinking", "Life impact"]
+categories = ['Sleep problems and tiredness', 'Worry and stress', 'Anxiety attacks and facing fears', "Doing things that don't help", "Low mood and negative thinking", "Life impact"]
 categories.each do |title|
   Category.create!(title: title)
 end
