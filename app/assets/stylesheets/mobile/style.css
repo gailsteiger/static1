@@ -55,7 +55,7 @@ h1.title-window {
     background-image: url('../nhsLogoSm@2x.png');
     background-size: 60px;
     background-repeat: no-repeat;
-    background-position: 96% 40%;
+    background-position: 98% 40%;
 }
 
 h1.title {
@@ -764,6 +764,7 @@ and (max-width: 480px) {
     }
     .smartphone-title {
         visibility: visible;
+        font-size: 18px !important;
     }
 
     span.label-block {
@@ -779,7 +780,11 @@ and (min-width: 481px)
 and (max-width: 1024px) {
 
     .mobile-logo {
+        background-image: url('../nhsLogoLg@2x.png');
+        position: absolute;
         visibility: visible;
+        margin-top: 20px;
+        padding-bottom: 20px;
     }
 
     .tablet-title {
@@ -792,11 +797,8 @@ and (max-width: 1024px) {
 
 
     h1.title-window {
-        line-height: 40px !important;
         background-image: url('../nhsLogoLg@2x.png');
         background-size: 150px;
-        background-repeat: no-repeat;
-        background-position: 96% 40%;
     }
 
 }
