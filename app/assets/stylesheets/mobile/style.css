@@ -787,6 +787,15 @@ and (max-width: 1024px) {
         visibility: hidden;
     }
 
+
+    h1.title-window {
+        line-height: 40px !important;
+        background-image: url('../nhsLogoLg@2x.png');
+        background-size: 150px;
+        background-repeat: no-repeat;
+        background-position: 96% 40%;
+    }
+
 }
 
 
