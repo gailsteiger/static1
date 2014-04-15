@@ -758,6 +758,14 @@ and (max-width: 480px) {
         font-size: 26px !important;
     }
 
+    h1.title-window {
+        line-height: 40px !important;
+        background-image: url('../nhsLogoSm@2x.png');
+        background-size: 60px;
+        background-repeat: no-repeat;
+        background-position: 96% 40%;
+    }
+
     .tablet-title {
         display: none;
         visibility: hidden;
@@ -783,6 +791,16 @@ and (max-width: 480px) {
         margin-left: 10px;
     }
     .main-list > li > a {
+        margin-left: 3px;
+    }
+
+    .main-list > li.active > a {
+        margin-left: 8px;
+        padding-left:30px;
+
+    }
+    .submenu li img {
+        margin-top: 10px;
         margin-left: 3px;
     }
     .submenu li a {
