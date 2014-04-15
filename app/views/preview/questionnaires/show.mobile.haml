@@ -85,11 +85,10 @@
                   %ul.submenu{style: 'display: inline !important;'}
                     - resources.each do |resource|
                       %li
-                        %div.media
+                        %div.media.pull-left
                           = link_to resource.url, class: 'pull-right', target: "_blank" do
                             %span.images{"data-picture" => ""}
-                              %span
-                                = image_tag("mas@2x.png", class: 'media-object', retina: true)
+                              = image_tag("mas@2x.png", class: 'media-object', retina: true)
                             %p.media-body= resource.title
 
               - else
@@ -100,11 +99,10 @@
                   %ul.submenu
                     - resources.each do |resource|
                       %li
-                        %div.media
+                        %div.media.pull-left
                           = link_to resource.url, class: 'pull-right', target: "_blank" do
                             %span.images{"data-picture" => ""}
-                              %span
-                                = image_tag("mas@2x.png", class: 'media-object', retina: true)
+                              = image_tag("mas@2x.png", class: 'media-object', retina: true)
                             %p.media-body= resource.title
                 - @questionnaire.grouped_resources.each do |resource|
                   %li
@@ -115,11 +113,10 @@
                     %ul.submenu
                       - resource.resources.uniq.each do |subresource|
                         %li
-                          %div.media
+                          %div.media.pull-left
                             = link_to subresource.url, class: 'pull-right', target: "_blank" do
                               %span.images{"data-picture" => ""}
-                                %span
-                                  = image_tag("#{subresource.resource_type.downcase}@2x.png", class: 'media-object', style: 'height: 38px', retina: true)
+                                = image_tag("#{subresource.resource_type.downcase}@2x.png", class: 'media-object', style: 'height: 38px', retina: true)
                               %p.media-body= subresource.title
     %div
       %span.mobile-logo
