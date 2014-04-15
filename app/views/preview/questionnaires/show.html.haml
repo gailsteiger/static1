@@ -70,9 +70,13 @@
               %p.email-text
                 We have emailed the results to the email address you provided.
             %p.text{style: 'color: #585858; margin-top: 4px;'}
-              = result.try(&:body)
+              - body = result.try(&:body)
+              - if body.present?
+                = body.html_safe
             %strong.title-accordion{style: 'color: #585858; margin-top: 8px; margin-bottom: 10px;'}
-              = result.intro
+              - intro = result.try(&:intro)
+              - if intro.present?
+                = intro.html_safe
 
           #accordion 
             %ul.main-list
