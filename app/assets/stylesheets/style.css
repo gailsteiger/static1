@@ -67,6 +67,10 @@ h1.title {
     margin-bottom: 24px;
 }
 
+p.block {
+    display: flex;
+}
+
 #start-image {
     display: inline-block;
     margin-top: 30px;

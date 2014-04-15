@@ -85,11 +85,12 @@
                   %ul.submenu{style: 'display: inline !important;'}
                     - resources.each do |resource|
                       %li
-                        = link_to resource.url, target: "_blank" do
-                          %span.images{"data-picture" => ""}
-                            %span
-                              = image_tag("mas@2x.png", retina: true)
-                          %p.block= resource.title
+                        %div.media
+                          = link_to resource.url, class: 'pull-right', target: "_blank" do
+                            %span.images{"data-picture" => ""}
+                              %span
+                                = image_tag("mas@2x.png", class: 'media-object', retina: true)
+                            %p.media-body= resource.title
 
               - else
                 - resource_score = @questionnaire.score > 4 ? 5 : 4
@@ -99,11 +100,12 @@
                   %ul.submenu
                     - resources.each do |resource|
                       %li
-                        = link_to resource.url, target: "_blank" do
-                          %span.images{"data-picture" => ""}
-                            %span
-                              = image_tag("mas@2x.png", retina: true)
-                          %p.block= resource.title
+                        %div.media
+                          = link_to resource.url, class: 'pull-right', target: "_blank" do
+                            %span.images{"data-picture" => ""}
+                              %span
+                                = image_tag("mas@2x.png", class: 'media-object', retina: true)
+                            %p.media-body= resource.title
                 - @questionnaire.grouped_resources.each do |resource|
                   %li
                     - if resource.resources.size > 1
@@ -113,11 +115,12 @@
                     %ul.submenu
                       - resource.resources.uniq.each do |subresource|
                         %li
-                          = link_to subresource.url, target: "_blank" do
-                            %span.images{"data-picture" => ""}
-                              %span
-                                = image_tag("#{subresource.resource_type.downcase}@2x.png", style: 'height: 38px', retina: true)
-                            %p.block= subresource.title
+                          %div.media
+                            = link_to subresource.url, class: 'pull-right', target: "_blank" do
+                              %span.images{"data-picture" => ""}
+                                %span
+                                  = image_tag("#{subresource.resource_type.downcase}@2x.png", class: 'media-object', style: 'height: 38px', retina: true)
+                              %p.media-body= subresource.title
     %div
       %span.mobile-logo
         In association with

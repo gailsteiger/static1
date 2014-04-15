@@ -70,7 +70,9 @@ p.block {
 span.label-block {
     font-size: 13px;
     display: inline-block;
-    margin-top: 13px;
+    margin-top: 11px;
+    font-weight: normal;
+
 }
 
 #start-image {
@@ -779,7 +781,9 @@ and (max-width: 480px) {
     span.label-block {
         font-size: 18px;
         display: inline-block;
-        margin-top: 18px;
+        margin-top: 15px;
+        font-weight: normal;
+
     }
     .subpage2 p.text {
         margin-left: 10px;
