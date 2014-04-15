@@ -20,6 +20,7 @@ body {
     font-family: 'Arial', sans-serif;
     font-weight: 400;
     min-width: 300px;
+    color: #585858;
 }
 
 img {
@@ -729,6 +730,18 @@ span.label-block {
 }
 
 /* CSS for Logotype on Tablets and Smartphones */
+.mobile-logo {
+    z-index:-1;
+    width: 270px;
+    position:absolute;
+    right:0px;
+    margin-top: 15px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    font-size: 12px;
+    color: #585858;
+}
+
 /* For Smartphones (portrait and landscape) */
 @media only screen
 and (max-width: 480px) {
