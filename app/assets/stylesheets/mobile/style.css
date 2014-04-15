@@ -765,12 +765,28 @@ and (max-width: 480px) {
     .smartphone-title {
         visibility: visible;
         font-size: 18px !important;
+        padding-left: 15px;
     }
 
     span.label-block {
         font-size: 18px;
         display: inline-block;
         margin-top: 18px;
+    }
+    .subpage2 p.text {
+        margin-left: 10px;
+    }
+    .title-top {
+        margin-left: 10px;
+    }
+    .title-accordion {
+        margin-left: 10px;
+    }
+    .main-list > li > a {
+        margin-left: 3px;
+    }
+    .submenu li a {
+        margin-left: 3px;
     }
 }
 
