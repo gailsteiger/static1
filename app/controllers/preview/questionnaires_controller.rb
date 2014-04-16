@@ -77,7 +77,7 @@ class Preview::QuestionnairesController < ApplicationController
     @questionnaire.grouped_resources.each do |resource|
       @result_resources += '<ul>'
       resource.resources.uniq.each do |subresource|
-        @result_resources += "<li><a href='#{subresource.url}' target='_blank'/><span><p>#{subresource.title}</p></span></li>"
+        @result_resources += "<li><a href='#{subresource.url}' target='_blank'/>#{subresource.title}</a></li>"
       end
       @result_resources += '</ul>'
     end
