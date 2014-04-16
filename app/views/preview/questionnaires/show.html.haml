@@ -62,6 +62,7 @@
                 = image_tag("pointer.png", retina: true)
         .overflow
           .content.subpage2
+            = results_html
             - if @questionnaire.score == 0
               - result = Result.where(score_min: 0, score_max: 0).first
             - else
@@ -73,6 +74,8 @@
               - body = result.try(&:body)
               - if body.present?
                 = body.html_safe
+            %p.text
+              = @result_resources
             %strong.title-accordion{style: 'color: #585858; margin-top: 8px; margin-bottom: 10px;'}
               - intro = result.try(&:intro)
               - if intro.present?

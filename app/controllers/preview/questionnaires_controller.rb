@@ -57,6 +57,10 @@ class Preview::QuestionnairesController < ApplicationController
     end
   end
 
+
+
+
+
   private
   def allow_iframe
     response.headers.except! 'X-Frame-Options'
