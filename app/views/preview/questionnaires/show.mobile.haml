@@ -118,10 +118,9 @@
                               %span.images{"data-picture" => ""}
                                 = image_tag("#{subresource.resource_type.downcase}@2x.png", class: 'media-object', style: 'height: 38px', retina: true)
                               %p.media-body= subresource.title
-    %div
-      %span.mobile-logo
-        In association with
-        = image_tag('MAS_logo_lg@2x.png', style: 'width: 160px; margin-bottom: -1px;', retina: true)
+    %div.mobile-logo
+      In association with
+      = image_tag('MAS_logo_lg@2x.png', style: 'width: 160px; margin-bottom: 18px;', retina: true)
 
 
     .bg-popup
