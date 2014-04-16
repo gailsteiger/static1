@@ -230,9 +230,7 @@ p.block {
     -webkit-appearance: none;
 }
 
-.button-direction:hover {
-    opacity: 1.0;
-}
+
 
 .button-direction.left {
     float: left;
@@ -240,6 +238,11 @@ p.block {
 
 .button-direction.right {
     float: right;
+}
+
+.btn-active:hover {
+    background: #0577d3;
+    opacity: 1.0;
 }
 
 .holder-button {

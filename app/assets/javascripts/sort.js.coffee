@@ -1,10 +1,12 @@
 jQuery ->
   $('.input-radio label').click ->
     $('.submit-question').removeAttr('disabled')
+    $('.submit-question').addClass('btn-active')
     $('.submit-question').css({opacity: 1.0})
 
   $('.ez-hide').click ->
     $('.submit-question').removeAttr('disabled')
+    $('.submit-question').addClass('btn-active')
     $('.submit-question').css({opacity: 1.0})
 
   if($('.top-part').length > 0)
