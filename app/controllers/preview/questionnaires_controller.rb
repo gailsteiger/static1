@@ -66,7 +66,7 @@ class Preview::QuestionnairesController < ApplicationController
     result = Result.where("score_min < ? AND score_max > ?", @questionnaire.score, @questionnaire.score).first
     body = result.try(&:body)
     intro = result.try(&:intro)
-    result_intro = "<storng>#{intro}</strong>"
+    result_intro = "<strong>#{intro}</strong>"
     result_body = "<p>#{body}</p>"
     result_resources = results_html
     {result_intro: result_intro, result_body: result_body, result_resources: result_resources}
