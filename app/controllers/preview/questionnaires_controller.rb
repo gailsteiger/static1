@@ -16,9 +16,9 @@ class Preview::QuestionnairesController < ApplicationController
   end
 
   def email
-    #if MAS::Mailer::Validator.valid?(params[:email])
-        #MAS::Mailer::EmailVisionMessage.new(params[:email], "template-unique-id", "template-unique-token", {}).deliver
-    #end
+    if MAS::Mailer::Validator.valid?(params[:email])
+        MAS::Mailer::EmailVisionMessage.new(params[:email], "template-unique-id", "template-unique-token", mail_content).deliver
+    end
 
     @questionnaire = Questionnaire.find(params[:questionnaire_id])
     @question = nil
@@ -57,12 +57,30 @@ class Preview::QuestionnairesController < ApplicationController
     end
   end
 
-
-
-
-
   private
   def allow_iframe
     response.headers.except! 'X-Frame-Options'
+  end
+
+  def mail_content
+    result = Result.where("score_min < ? AND score_max > ?", @questionnaire.score, @questionnaire.score).first
+    body = result.try(&:body)
+    intro = result.try(&:intro)
+    result_intro = "<storng>#{intro}</strong>"
+    result_body = "<p>#{body}</p>"
+    result_resources = results_html
+    {result_intro: result_intro, result_body: result_body, result_resources: result_resources}
+  end
+
+  def results_html
+    @result_resources = ''
+    @questionnaire.grouped_resources.each do |resource|
+      @result_resources += '<ul>'
+      resource.resources.uniq.each do |subresource|
+        @result_resources += "<li><a href='#{subresource.url}' target='_blank'/><span><p>#{subresource.title}</p></span></li>"
+      end
+      @result_resources += '</ul>'
+    end
+    @result_resources
   end
 end
