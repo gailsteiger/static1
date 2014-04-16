@@ -757,6 +757,11 @@ and (max-width: 480px) {
         display: none;
         visibility: hidden;
     } */
+
+    .hide {
+        display: none;
+        visibility: hidden;
+    }
     h1.title {
         color: #0099ef;
         font-size: 26px !important;
