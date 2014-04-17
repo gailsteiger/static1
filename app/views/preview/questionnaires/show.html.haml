@@ -122,6 +122,28 @@
                             %p= subresource.title
 
     .bg-popup
+      :javascript
+        (function($) {
+            $('#email').keyup(function()
+            {
+              alert( "Handler for .keyup() called." );
+              if(!validateEmail($(this).val()))
+              { $('#message').html("<b>Enter a valid email address</b>"),
+              }
+              else
+              { $('#mail-submit').removeAttr('disabled')
+              $('#message').html( "<b>yo!</b>" )}
+            });
+
+             function validateEmail($email) {
+              var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+              if( !emailReg.test( $email ) ) {
+                return false;
+              } else {
+                return true;
+              }
+            }
+        })(jQuery);
       .box-popup
         %span#close
           %span{"data-src" => "/assets/close.png"}
@@ -133,7 +155,7 @@
               Enter your email address
             %input{type: "email", name: "email", id: "email"}
 
-          %input{type: "submit", name: "submit", value: "Send", class: "start-button"}
+          %input{ id: 'mail-submit', type: "submit", name: "submit", value: "Send", class: "start-button", disabled: 'disabled'}
 
 
 

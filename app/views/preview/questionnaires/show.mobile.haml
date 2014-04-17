@@ -128,6 +128,28 @@
 
 
     .bg-popup
+      :javascript
+        jQuery ->
+          $(function()
+          {
+            $('input#mail-submit').click(function()
+            {
+              if(!validateEmail($('input#email').val()))
+              { $('#message').html( "<b>yo!</b>"),
+              $('#mail-submit').removeAttr('disabled')}
+              else
+              {$('#message').html( "<b>Enter a valid email address</b>")}
+            });
+
+             function validateEmail($email) {
+              var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+              if( !emailReg.test( $email ) ) {
+                return false;
+              } else {
+                return true;
+              }
+            }
+          });
       .box-popup
         %span#close
           %span{"data-src" => "/assets/close.png"}
@@ -138,6 +160,7 @@
             %label{for: "email"}
               Enter your email address
             %input{type: "email", name: "email", id: "email"}
+            %div#message
 
-          %input{type: "submit", name: "submit", value: "Send", class: "start-button"}
+          %input{type: "submit", id: 'mail-submit', name: "submit", value: "Send", class: "start-button"}
 
