@@ -753,10 +753,9 @@ span.label-block {
 @media only screen
 and (max-width: 480px) {
 
-    /*.mobile-logo {
-        display: none;
-        visibility: hidden;
-    } */
+    .mobile-logo {
+        max-width: 290px !important;
+    }
 
     .hide {
         display: none;
@@ -765,6 +764,7 @@ and (max-width: 480px) {
     h1.title {
         color: #0099ef;
         font-size: 26px !important;
+        margin-top: 60px !important;
     }
 
     h1.title-window {
