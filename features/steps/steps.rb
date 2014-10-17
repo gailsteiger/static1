@@ -1,7 +1,7 @@
 Given(/^I am on the home page$/) do
   visit 'index.html'
-  page.source.should have_selector('html')
-  page.source.should have_selector('body')
+  expect(page).to have_selector('html')
+  expect(page).to have_selector('body')
 end
 
 Given(/^I am on the "(.*?)" page$/) do |page|
@@ -9,6 +9,6 @@ Given(/^I am on the "(.*?)" page$/) do |page|
 end
 
 Then(/^I should see "(.*?)"$/) do |string|
-  page.should have_content string
+  expect(page).to have_content string
 end
 
